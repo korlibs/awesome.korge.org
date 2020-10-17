@@ -1,6 +1,6 @@
 ---
 title: Billing support
-bundle_url: "https://github.com/korlibs/korge-bundles.git::korge-billing"
+bundle_url: "https://github.com/korlibs/korge-bundles.git::korge-billing::master"
 license: MIT
 author: korge
 required_vars: []

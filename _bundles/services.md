@@ -1,6 +1,6 @@
 ---
 title: Login, achievements and leaderboard support
-bundle_url: "https://github.com/korlibs/korge-bundles.git::korge-services"
+bundle_url: "https://github.com/korlibs/korge-bundles.git::korge-services::master"
 license: MIT
 author: korge
 required_vars: []

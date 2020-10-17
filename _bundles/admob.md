@@ -1,6 +1,6 @@
 ---
 title: Admob support
-bundle_url: "https://github.com/korlibs/korge-bundles.git::korge-admob"
+bundle_url: "https://github.com/korlibs/korge-bundles.git::korge-admob::master"
 license: MIT
 author: korge
 required_vars: [ADMOB_APP_ID]
