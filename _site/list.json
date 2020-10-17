@@ -1,0 +1,10 @@
+{
+    "bundles": [
+        {
+                "title": "Admob support",
+                "path": "_bundles/admob.md",
+                "required_vars": ["ADMOB_APP_ID"]
+            }
+
+    }
+}

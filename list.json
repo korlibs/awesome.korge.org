@@ -1,0 +1,16 @@
+---
+layout: null
+---
+{
+    "bundles": [
+        {% for bundle in site.bundles -%}
+            {
+                "title": {{ bundle.title | jsonify }},
+                "bundle_url": {{ bundle.bundle_url | jsonify }},
+                "required_vars": {{ bundle.required_vars | jsonify }}
+            }
+            {%- if forloop.last == false -%},{%- endif -%}
+        {%- endfor %}
+
+    }
+}

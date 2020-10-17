@@ -1,1 +1,23 @@
-HELLO
+---
+layout: null
+---
+<h1>List of Awesome KorGE Bundles</h1>
+<p>API version: <a href="/list.json">list.json</a></p>
+<ul>
+{% for bundle in site.bundles %}
+<li for="{{ bundle.id }}">[{{ bundle.category }}] {{ bundle.title }}
+<div class="content">
+    {{ bundle.content }}
+</div>
+<div id="{{ bundle.id }}">
+<pre><code>
+korge {
+    bundle({{ bundle.bundle_url | jsonify }})
+{% for bvar in bundle.required_vars %}    config("{{ bvar }}", "...")
+{% endfor %}
+}
+</code></pre>
+</div>
+</li>
+{% endfor %}
+</ul>

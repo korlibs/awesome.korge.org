@@ -1,0 +1,13 @@
+title: KorGE - Modern Multiplatform Game Engine for Kotlin
+email: info@korge.org
+description: >-
+  KorGE is a multiplatform Game Engine written in Kotlin.
+  It allows to target JVM, JS, Linux, Windows, MacOS, Android and iOS.
+baseurl: ""
+url: ""
+
+markdown: kramdown
+
+collections:
+  bundles:
+    sort_by: order
