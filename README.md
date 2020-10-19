@@ -26,4 +26,4 @@ Just referencing to a SHA1 commit would not be secure enough as a collision coul
 But the extra SHA256 for the content allows to securely reference to external repositories without worrying for the content to be modified. 
 In fact, a malicious attacker would need to have access to a repository, rewrite/reupload the history of the repository creating a commit with the same SHA1, that also has the same SHA256 for the content, which is impractical.
 
-This means that a single bundle URL should load always the same code, to not load anything.
+This means that a single bundle URL should load always the same content, or to not load anything.
