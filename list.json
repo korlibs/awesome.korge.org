@@ -7,6 +7,8 @@ layout: null
             {
                 "title": {{ bundle.title | jsonify }},
                 "bundle_url": {{ bundle.bundle_url | jsonify }},
+                "image": {{ bundle.image | jsonify }},
+                "icon": {{ bundle.icon | jsonify }},
                 "required_vars": {{ bundle.required_vars | jsonify }}
             }
             {%- if forloop.last == false -%},{%- endif -%}

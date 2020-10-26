@@ -6,6 +6,7 @@ author: korge
 required_vars: []
 platforms: [android]
 category: services
+icon: billing.svg
 ---
 
 Add support for InApp payments and subscriptions

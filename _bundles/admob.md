@@ -6,6 +6,7 @@ author: korge
 required_vars: [ADMOB_APP_ID]
 platforms: [android]
 category: services
+icon: admob.svg
 ---
 
 Adds support for <https://admob.google.com/>.

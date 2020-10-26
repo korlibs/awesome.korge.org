@@ -6,6 +6,7 @@ author: korge
 required_vars: []
 platforms: [common]
 category: services
+icon: box2d.svg
 ---
 
 Adds support for Box2D.

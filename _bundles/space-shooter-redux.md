@@ -7,7 +7,7 @@ author: Kenney
 required_vars: []
 platforms: [common]
 category: assets
-icon: space-shooter-redux.png
+image: space-shooter-redux.png
 ---
 
 Space-related backgrounds, spaceships, fonts and sounds.

@@ -8,7 +8,10 @@ layout: null
 <li for="{{ bundle.id }}">[{{ bundle.category }}] {{ bundle.title }}
 <div class="content">
     {% if bundle.icon %}
-    <p><img src="/images/{{ bundle.icon }}" /></p>
+    <p><img style="width:64px;height:64px;" src="/icons/{{ bundle.icon }}" /></p>
+    {% endif %}
+    {% if bundle.image %}
+    <p><img src="/images/{{ bundle.image }}" /></p>
     {% endif %}
     {{ bundle.content }}
 </div>

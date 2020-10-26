@@ -6,6 +6,7 @@ author: korge
 required_vars: []
 platforms: [android]
 category: services
+icon: services.svg
 ---
 
 Add support for several platform-dependant services
