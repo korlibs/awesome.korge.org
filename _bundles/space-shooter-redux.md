@@ -1,6 +1,6 @@
 ---
 title: Space Shooter Redux
-bundle_url: "https://github.com/korlibs/korge-free-assets.git::space-shooter-redux::313209df340578f036b81376ade911fb40d4cea4##7abbaa83a7de1da2d38aee9fce8eccc3ecd78fd09e1131b162575fbd477823e7"
+bundle_url: "https://github.com/korlibs/korge-free-assets.git::space-shooter-redux::531e1bd6a588358266f1815daa143bd057ed6841##b31b6f1e1f4b96209ec22dc422fa95b2e77173736a093db0aeeb7ee50a937e16"
 author_url: https://opengameart.org/content/space-shooter-redux
 license: CC0
 author: Kenney
@@ -15,6 +15,8 @@ Space-related backgrounds, spaceships, fonts and sounds.
 Sample code (views decorators/builders prefixed with `spaceShooterRedux`):
 
 ```kotlin
+import com.soywiz.korge.*
+import com.soywiz.korim.color.*
 import spaceredux.*
 
 suspend fun main() = Korge(width = 512, height = 512, bgcolor = Colors["#2b2b2b"]) {
