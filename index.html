@@ -5,9 +5,10 @@ title: Awesome KorGE Bundles
 <header>
 	<h1>Awesome KorGE Bundles</h1>
 
-	<p>API version: <a href="/list.json">list.json</a>. Add <a target="_blank"
-															   href="https://github.com/korlibs/awesome.korge.org">your
-		own resources</a>.</p>
+	<p>
+		API version: <a href="/list.json">list.json</a>.
+		Add <a target="_blank" href="https://github.com/korlibs/awesome.korge.org">your own resources</a>.
+	</p>
 
 	<!--
 	<label>
@@ -18,17 +19,28 @@ title: Awesome KorGE Bundles
 {% for bundle in site.bundles %}
 <div class="card mb-3">
 	<div class="row g-0">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			{% assign icon = bundle.icon | default: "unknown.svg" %}
-			<img src="/icons/{{ icon }}" class="img-fluid" style="width: 100%;height:auto;padding: 1em;" alt="...">
+			<img src="/icons/{{ icon }}" class="img-fluid" style="width: 100%;height:auto;max-width:250px;padding: 1em;" alt="...">
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<div class="card-body">
 				<h5 class="card-title">{{ bundle.title }}</h5>
 				<p class="card-text">
-					Author: <a href="{{ bundle.author_link }}" target="_blank">{{ bundle.author }}</a>
-					License: {{ bundle.license }}
-					<a href="{{ bundle.bundle_link }}" target="_blank">Website</a>
+					<div class="d-flex flex-row">
+						<div style="margin-right: 1em;">
+							<i class="fas fa-user"></i>
+							<strong>Author:</strong> <a href="{{ bundle.author_link }}" target="_blank">{{ bundle.author }}</a>
+						</div>
+						<div style="margin-right: 1em;">
+							<i class="fas fa-inbox"></i>
+							<strong>License:</strong> {{ bundle.license }}
+						</div>
+						<div style="margin-right: 1em;">
+							<i class="fas fa-globe"></i>
+							<a href="{{ bundle.bundle_link }}" target="_blank">Website</a>
+						</div>
+					</div>
 				</p>
 				<p class="card-text">
 					<span class="badge rounded-pill bg-secondary">{{ bundle.category }}</span>
@@ -42,14 +54,17 @@ title: Awesome KorGE Bundles
 				{% endif %}
 					{{ bundle.content }}
 				</p>
+
 				<!--
 				<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 				-->
 
 				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#entrymodal{{ forloop.index }}">
-					Get Code
-				</button>
+				<div class="d-flex flex-row-reverse">
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#entrymodal{{ forloop.index }}">
+						Get Code
+					</button>
+				</div>
 
 				<!-- Modal -->
 				<div class="modal fade" id="entrymodal{{ forloop.index }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
