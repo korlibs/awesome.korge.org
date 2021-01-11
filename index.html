@@ -68,21 +68,21 @@ title: Awesome KorGE Bundles
 
 				<!-- Modal -->
 				<div class="modal fade" id="entrymodal{{ forloop.index }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
+					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width:100%;padding:1em;">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title" id="exampleModalLabel">Code for including {{ bundle.title }}</h5>
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-<pre><code>
-korge {
+<pre style="background: #eee;border-radius:1em;padding: 1em 2em;"><code id="modalcode{{ forloop.index }}">korge {
     bundle({{ bundle.bundle_url | jsonify }})
 {% for bvar in bundle.required_vars %}    config("{{ bvar }}", "...")
 {% endfor %}}
 </code></pre>
 							</div>
 							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" onclick="window.getSelection().selectAllChildren(document.querySelector('#modalcode{{ forloop.index }}'));document.execCommand('copy');">Select and Copy</button>
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 							</div>
 						</div>
