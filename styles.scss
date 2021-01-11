@@ -1,0 +1,53 @@
+---
+---
+
+body {
+}
+div#main-content {
+  margin: 0 auto;
+  width: 800px;
+  max-width: 100%;
+}
+header {
+  h1 {
+	background: linear-gradient(-0deg, #000, #222, #AAA);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-shadow: 0px 2px 4px rgba(100,100,100,0.5);
+	color: #767676;
+	font-family: Spartan, Arial, serif;
+	font-size: 32px;
+	font-weight: 600;
+	line-height: 28px;
+	text-align: center;
+	width: 100%;
+  }
+
+  input[type=search] {
+	width: 100%;
+	height: 32px;
+	border-radius: 8px;
+	background: url(i/magnifier.svg) no-repeat scroll 0.5em center;
+	background-size: 1.3em 1.3em;
+
+	border: solid 1px #8412b6;
+	box-shadow: 0 2px 4px rgba(123,22,158,0.5);
+	transition: all 0.2s;
+
+	font-family: Spartan, Arial, serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 17px;
+	padding: 0.75em 2.5em;
+	outline: none;
+	&::placeholder {
+	  color: #c99ebe;
+	}
+	&:focus {
+	  outline: none;
+	  border: solid 1px #a00ae3;
+	  box-shadow: 0 2px 8px rgba(155, 23, 200, 0.5);
+	  transition: all 0.2s;
+	}
+  }
+}

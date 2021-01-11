@@ -1,12 +1,14 @@
 ---
 title: Space Shooter Redux
 bundle_url: "https://github.com/korlibs/korge-free-assets.git::space-shooter-redux::531e1bd6a588358266f1815daa143bd057ed6841##b31b6f1e1f4b96209ec22dc422fa95b2e77173736a093db0aeeb7ee50a937e16"
-author_url: https://opengameart.org/content/space-shooter-redux
+bundle_link: https://opengameart.org/content/space-shooter-redux
 license: CC0
 author: Kenney
+author_link: https://www.kenney.nl/
 required_vars: []
 platforms: [common]
 category: assets
+icon: space-shooter-redux.svg
 image: space-shooter-redux.png
 ---
 

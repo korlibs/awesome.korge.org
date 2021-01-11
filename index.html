@@ -1,29 +1,80 @@
 ---
-layout: null
+layout: default
+title: Awesome KorGE Bundles
 ---
-<h1>List of Awesome KorGE Bundles</h1>
-<p>API version: <a href="/list.json">list.json</a>. Add <a target="_blank" href="https://github.com/korlibs/awesome.korge.org">your own resources</a>.</p>
-<ul>
+<header>
+	<h1>Awesome KorGE Bundles</h1>
+
+	<p>API version: <a href="/list.json">list.json</a>. Add <a target="_blank"
+															   href="https://github.com/korlibs/awesome.korge.org">your
+		own resources</a>.</p>
+
+	<!--
+	<label>
+		<input id="search" type="search" placeholder="Search bundles..." autofocus/>
+	</label>
+	-->
+</header>
 {% for bundle in site.bundles %}
-<li for="{{ bundle.id }}">[{{ bundle.category }}] {{ bundle.title }}
-<div class="content">
-    {% if bundle.icon %}
-    <p><img style="width:64px;height:64px;" src="/icons/{{ bundle.icon }}" /></p>
-    {% endif %}
-    {% if bundle.image %}
-    <p><img src="/images/{{ bundle.image }}" /></p>
-    {% endif %}
-    {{ bundle.content }}
-</div>
-<div id="{{ bundle.id }}">
+<div class="card mb-3">
+	<div class="row g-0">
+		<div class="col-md-4">
+			{% assign icon = bundle.icon | default: "unknown.svg" %}
+			<img src="/icons/{{ icon }}" class="img-fluid" style="width: 100%;height:auto;padding: 1em;" alt="...">
+		</div>
+		<div class="col-md-8">
+			<div class="card-body">
+				<h5 class="card-title">{{ bundle.title }}</h5>
+				<p class="card-text">
+					Author: <a href="{{ bundle.author_link }}" target="_blank">{{ bundle.author }}</a>
+					License: {{ bundle.license }}
+					<a href="{{ bundle.bundle_link }}" target="_blank">Website</a>
+				</p>
+				<p class="card-text">
+					<span class="badge rounded-pill bg-secondary">{{ bundle.category }}</span>
+					{% for tag in bundle.tags %}
+					<span class="badge rounded-pill bg-secondary">{{ bundle.tag }}</span>
+					{% endfor %}
+				</p>
+				<p class="card-text">
+					{% if bundle.image %}
+				<p><img src="/images/{{ bundle.image }}" class="img-fluid"/></p>
+				{% endif %}
+					{{ bundle.content }}
+				</p>
+				<!--
+				<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+				-->
+
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#entrymodal{{ forloop.index }}">
+					Get Code
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="entrymodal{{ forloop.index }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Code for including {{ bundle.title }}</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
 <pre><code>
 korge {
     bundle({{ bundle.bundle_url | jsonify }})
 {% for bvar in bundle.required_vars %}    config("{{ bvar }}", "...")
-{% endfor %}
-}
+{% endfor %}}
 </code></pre>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-</li>
 {% endfor %}
-</ul>
