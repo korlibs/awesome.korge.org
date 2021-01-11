@@ -5,19 +5,40 @@ title: Awesome KorGE Bundles
 <header>
 	<h1>Awesome KorGE Bundles</h1>
 
-	<p>
+	<div>
 		API version: <a href="/list.json">list.json</a>.
 		Add <a target="_blank" href="https://github.com/korlibs/awesome.korge.org">your own resources</a>.
-	</p>
+	</div>
 
-	<!--
-	<label>
-		<input id="search" type="search" placeholder="Search bundles..." autofocus/>
-	</label>
-	-->
+	<script type="text/javascript">
+		function updatedSearch() {
+			const text = document.getElementById('search').value;
+			//console.log(text)
+			let activeCount = 0
+			for (const entry of document.querySelectorAll('.entry')) {
+				const active = (text === '' || entry.textContent.search(new RegExp(text, 'i')) >= 0)
+				if (active) activeCount++
+				//entry.style.display = active ? 'block' : 'none';
+				if (active) {
+					$(entry).show('fast')
+				} else {
+					$(entry).hide('fast')
+				}
+				//console.log(entry.textContent)
+			}
+			if (activeCount > 0) {
+				$('#no-entries-found').hide('fast')
+			} else {
+				$('#no-entries-found').show('fast')
+			}
+		}
+	</script>
+
+	<input id="search" type="search" placeholder="Search bundles..." autofocus style="margin: 2em 0;" onkeyup="updatedSearch()" oninput="updatedSearch()"/>
 </header>
 {% for bundle in site.bundles %}
-<div class="card mb-3">
+<div id="no-entries-found" style="display: none;">No entries found</div>
+<div class="entry card mb-3">
 	<div class="row g-0">
 		<div class="col-md-3">
 			{% assign icon = bundle.icon | default: "unknown.svg" %}
@@ -48,10 +69,10 @@ title: Awesome KorGE Bundles
 					<span class="badge rounded-pill bg-secondary">{{ bundle.tag }}</span>
 					{% endfor %}
 				</p>
-				<p class="card-text">
+				<p class="card-text" style="max-height:128px;overflow:auto;">
 					{% if bundle.image %}
-				<p><img src="/images/{{ bundle.image }}" class="img-fluid"/></p>
-				{% endif %}
+					<div><img src="/images/{{ bundle.image }}" class="img-fluid"/></div>
+					{% endif %}
 					{{ bundle.content }}
 				</p>
 
@@ -82,7 +103,12 @@ title: Awesome KorGE Bundles
 </code></pre>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-primary" onclick="window.getSelection().selectAllChildren(document.querySelector('#modalcode{{ forloop.index }}'));document.execCommand('copy');">Select and Copy</button>
+								<button
+										type="button" class="btn btn-primary"
+										onclick="window.getSelection().selectAllChildren(document.querySelector('#modalcode{{ forloop.index }}'));document.execCommand('copy');return true;"
+										role="button" data-toggle="popover" data-trigger="focus" data-content="Copied!"
+										data-placement="top"
+								>Select and Copy</button>
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 							</div>
 						</div>

@@ -6,6 +6,7 @@ body {
 div#main-content {
   margin: 0 auto;
   width: 800px;
+  padding: 1em;
   max-width: 100%;
 }
 header {
@@ -20,12 +21,11 @@ header {
 	font-weight: 600;
 	text-align: center;
 	width: 100%;
-	margin: 1em auto;
+	margin: 1em auto 0.5em auto;
   }
 
   input[type=search] {
-	width: 100%;
-	height: 32px;
+	width: 100% !important;
 	border-radius: 8px;
 	background: url(i/magnifier.svg) no-repeat scroll 0.5em center;
 	background-size: 1.3em 1.3em;
