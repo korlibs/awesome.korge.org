@@ -1,7 +1,8 @@
 ---
 title: Box2d support
-bundle_url: "https://github.com/korlibs/korge-bundles.git::korge-box2d::73daf015ca725cc2717fa74213bc870e770ee2cd##fb2e67184e3374a53ba3ab43c28bbe78eeca070a76c3df4f565df169bbede60b"
+bundle_url: "https://github.com/korlibs/korge-bundles.git::korge-box2d::7439e5c7de7442f2cd33a1944846d44aea31af0a##9fd9d54abd8abc4736fd3439f0904141d9b6a26e9e2f1e1f8e2ed10c51f490fd"
 bundle_link: https://github.com/korlibs/korge-bundles/tree/master/korge-box2d
+korge_version: 2.1.1.1
 license: MIT
 author: Korge
 author_link: https://github.com/korlibs/
