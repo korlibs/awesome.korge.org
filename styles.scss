@@ -1,8 +1,32 @@
 ---
 ---
 
+:root {
+  --bg-color: white;
+  --text-color: #212529;
+  --link-color: #0d6efd;
+  --border-color: rgba(0, 0, 0, 0.125);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+	--bg-color: #252530;
+	--text-color: #99b4cd;
+	--border-color: rgba(255, 255, 255, 0.125);
+  }
+}
+
 body {
   overflow-y: scroll;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.card, .modal-content {
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+}
+a {
+  color: var(--link-color);
 }
 div#main-content {
   margin: 0 auto;
@@ -41,6 +65,7 @@ header {
 	line-height: 17px;
 	padding: 0.75em 2.5em;
 	outline: none;
+	color: var(--text-color);
 	&::placeholder {
 	  color: #c99ebe;
 	}
