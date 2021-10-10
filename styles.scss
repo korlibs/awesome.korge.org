@@ -5,14 +5,17 @@
   --bg-color: white;
   --text-color: #212529;
   --link-color: #0d6efd;
+  --link-color-hover: #0c5acc;
   --border-color: rgba(0, 0, 0, 0.125);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-	--bg-color: #252530;
-	--text-color: #99b4cd;
+	--bg-color: #2B2B2B;
+	--text-color: #BABABA;
 	--border-color: rgba(255, 255, 255, 0.125);
+	--link-color: #6897BB;
+	--link-color-hover: #2b75b0;
   }
 }
 
@@ -27,9 +30,12 @@ body {
 }
 a {
   color: var(--link-color);
+  text-decoration: none;
+  &:hover {
+	color: var(--link-color-hover);
+  }
 }
 div#main-content {
-  margin: 0 auto;
   width: 800px;
   padding: 1em;
   max-width: 100%;
@@ -44,7 +50,7 @@ header {
 	font-family: Spartan, Arial, serif;
 	font-size: 48px;
 	font-weight: 600;
-	text-align: center;
+	text-align: left;
 	width: 100%;
 	margin: 1em auto 0.5em auto;
   }
