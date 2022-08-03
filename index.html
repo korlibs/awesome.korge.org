@@ -3,7 +3,13 @@ layout: default
 title: Awesome KorGE Bundles
 ---
 <header>
-	<h1>Awesome KorGE Bundles</h1>
+	<h1>KorGE Store</h1>
+
+	<script>
+		if (window.insideKorgeIntellij) {
+			document.body.setAttribute("data-theme", "intellij")
+		}
+	</script>
 
 	<div>
 		API version: <a href="/list.json">list.json</a>.
@@ -45,7 +51,7 @@ title: Awesome KorGE Bundles
 			<img src="/icons/{{ icon }}" class="img-fluid" style="width: 100%;height:auto;max-width:250px;padding: 1em;" alt="...">
 		</div>
 		<div class="col-md-9">
-			<div class="card-body">
+			<div class="card-body bundle-entry">
 				<h5 class="card-title">{{ bundle.title }}</h5>
 				<p class="card-text">
 					<div class="d-flex flex-row">
@@ -80,9 +86,18 @@ title: Awesome KorGE Bundles
 				<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 				-->
 
+				<div style="display:none;" class="data-bundle-id">{{ bundle.id }}</div>
+				<div style="display:none;" class="data-bundle-title">{{ bundle.title }}</div>
+				<div style="display:none;" class="data-bundle-link">{{ bundle.link }}</div>
+				<div style="display:none;" class="data-bundle-description">{{ bundle.content }}</div>
+				<div style="display:none;" class="data-bundle-image">{{ bundle.image }}</div>
+				<div style="display:none;" class="data-bundle-author">{{ bundle.author }}</div>
+				<div style="display:none;" class="data-bundle-url">{{ bundle.bundle_url }}</div>
+				<div style="display:none;" class="data-bundle-parameters">{% for bvar in bundle.required_vars %}{{ bvar }},{% endfor %}</div>
+
 				<!-- Button trigger modal -->
 				<div class="d-flex flex-row-reverse">
-					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#entrymodal{{ forloop.index }}">
+					<button type="button" class="btn btn-primary get-code-button" data-bs-toggle="modal" data-bs-target="#entrymodal{{ forloop.index }}">
 						Get Code
 					</button>
 				</div>
@@ -119,3 +134,49 @@ title: Awesome KorGE Bundles
 	</div>
 </div>
 {% endfor %}
+<script>
+	//alert([...document.querySelectorAll(".bundle-entry")])
+
+	async function getKorgePlugins() {
+		return window?.jcefFunctions?.getKorgePlugins?.({})
+	}
+
+	async function init() {
+		if (!window?.jcefFunctions?.installKorgePlugin) return
+
+		const plugins = await getKorgePlugins()
+
+		document.querySelectorAll(".bundle-entry").forEach(entry => {
+			function getParam(name) {
+				return entry.querySelector(`.data-bundle-${name}`)?.textContent
+			}
+
+			const getCodeButton = entry.querySelector(".get-code-button")
+			getCodeButton.removeAttribute("data-bs-toggle")
+			getCodeButton.removeAttribute("data-bs-target")
+
+			const id = getParam("id")
+			const author = getParam("author")
+			const title = getParam("title")
+			const link = getParam("link")
+			const description = getParam("description")
+			const image = getParam("image")
+			const url = getParam("url")
+			const parameters = getParam("parameters").split(",").filter(it => it?.length > 0)
+			const installed = plugins.indexOf(url) >= 0;
+
+			getCodeButton.textContent = installed ? "Installed" : "Install";
+			getCodeButton.classList.toggle('disabled', installed)
+
+			getCodeButton.onclick = async (e) => {
+				const result = await window.jcefFunctions.installKorgePlugin({
+					id, author, title, link, description, image, url, parameters,
+				})
+				init() // reinit
+				return false
+			}
+		})
+	}
+
+	init()
+</script>
