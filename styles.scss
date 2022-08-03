@@ -19,6 +19,19 @@
   }
 }
 
+[data-theme="intellij"] {
+	--bg-color: #3C3F41;
+	--text-color: #BABABA;
+	--border-color: rgba(255, 255, 255, 0.125);
+	--link-color: #6897BB;
+	--link-color-hover: #2b75b0;
+	h1 {
+		background: linear-gradient(-0deg, #fff, #fff, #fff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+}
+
 body {
   cursor: default;
   overflow-y: scroll;
