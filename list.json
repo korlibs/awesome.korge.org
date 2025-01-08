@@ -14,5 +14,5 @@ layout: null
             {%- if forloop.last == false -%},{%- endif -%}
         {%- endfor %}
 
-    }
+    ]
 }
